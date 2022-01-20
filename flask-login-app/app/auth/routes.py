@@ -71,7 +71,10 @@ def scrapy_data():
         soup = BeautifulSoup(response.content, "html.parser")
         dom = etree.HTML(str(soup))
         data_articles = dom.xpath("//ol[@class='ui-search-layout ui-search-layout--stack']//div[@class='ui-search-item__group ui-search-item__group--title']//a/@href")
-        data = {"links":data_articles}
+        if len(data_articles) ==0:
+           data = {"links":["No se encontro informacion para la consulta realizada"]}
+        else:
+            data = {"links":data_articles}
         return render_template("scrapy_data.html",**data)
     return render_template("scrapy_data.html", form = form)
 
