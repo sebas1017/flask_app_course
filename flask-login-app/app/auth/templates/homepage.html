@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+ <div class="container">
+
+    <h3>HOMEPAGE SCRAPY APP</h3>
+  <h4 class ="text-primary">  Logged in system as {{ current_user.user_name.title()}}</h4>
+
+ </div>
+
+ <div class="container">
+  <span class="label label-success"> <a href="{{url_for('authentication.scrapy_data')}}">Scrapy data</a> </span>
+</div>
+ {% endblock content%}
